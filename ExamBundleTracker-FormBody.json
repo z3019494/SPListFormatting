@@ -1,0 +1,37 @@
+{
+    "sections": [
+        {
+            "displayname": "📄 Task details",
+            "fields": [
+                "Year of task",
+                "Course/Year",
+                "Task Number",
+                "Bundle Number"
+            ]
+        },
+        {
+            "displayname": "📌 Bundle Status",
+            "fields": [
+                "Bundle checked out",
+                "In possession",
+                "In circulation"
+            ]
+        },
+        {
+            "displayname": "📝 Marking status",
+            "fields": [
+                "Update Bundle Marking",
+                "Not Marked",
+                "Marked"
+            ]
+        },
+        {
+            "displayname": "⚙️These field(s) are automatically generated - do not modify",
+            "fields": [
+                "Title",
+                "Update log",
+                "Hidden when done"
+            ]
+        }
+    ]
+}
