@@ -1,0 +1,24 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "children": [
+    {
+      "elmType": "div",
+      "style": {
+        "cursor": "pointer",
+        "font-size": "23px"
+      },
+      "customRowAction": {
+        "action": "setValue",
+        "actionInput": {
+          "Incirculation": "=if(@currentField , '0' , '1' )",
+          "Updatelog": "=if(@currentField , '🚫 This bundle has been taken out of circulation','🔁 This bundle has been placed back in circulation')"
+        }
+      },
+      "attributes": {
+        "iconName": "=if(@currentField , 'BoxCheckmarkSolid' , 'Checkbox' )",
+        "class": "ms-fontColor-themePrimary"
+      }
+    }
+  ]
+}
