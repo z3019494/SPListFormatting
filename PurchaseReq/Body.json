@@ -1,0 +1,63 @@
+{
+    "sections": [
+        {
+            "displayname": "🚦 Status, Approval and Purchaser",
+            "fields": [
+                "Status",
+                "To be purchased by"
+            ]
+        },
+        {
+            "displayname": "🛍️ Item details",
+            "fields": [
+                "Supplier",
+                "Item Name",
+                "URL"
+            ]
+        },
+        {
+            "displayname": "💵 Costs",
+            "fields": [
+                "Unit price",
+                "GST inclusive unit price",
+                "Quantity",
+                "Delivery Cost",
+                "GST inclusive delivery cost"
+            ]
+        },
+        {
+            "displayname": "📱Auto calculated costs",
+            "fields": [
+                "Ex GST Cost",
+                "Ex GST Delivery",
+                "GST Item",
+                "GST Delivery",
+                "Grand Total"
+            ]
+        },
+        {
+            "displayname": "🖇️ Accounting details",
+            "fields": [
+                "Fund Code",
+                "Cost Centre",
+                "General Ledger Code",
+                "Budgeted Item"
+            ]
+        },
+        {
+            "displayname": "⚙️These field(s) are automatically populated - do not modify",
+            "fields": [
+                "Status Updates",
+                "Approved By",
+                "Approval Date",
+                "Nominated Purchaser",
+                "Purchaser",
+                "Receiver",
+                "Mark as Received",
+                "Mark as Purchased",
+                "Request ID",
+                "Hidden"
+            ]
+        }
+    ]
+}
