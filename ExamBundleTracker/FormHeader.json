@@ -53,7 +53,10 @@
                                 },
                                 {
                                     "elmType": "span",
-                                    "txtContent": "=[$Title]"
+                                    "txtContent": "=[$Title]",
+                                    "attributes": {
+                                        "class": "ms-fontWeight-bold"
+                                    }
                                 }
                             ]
                         },
