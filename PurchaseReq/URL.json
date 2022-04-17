@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/column-formatting.schema.json",
+  "elmType": "div",
+  "children": [
+    {
+      "elmType": "a",
+      "attributes": {
+        "iconName": "=if(@currentField != '','ShoppingCart','')",
+        "class": "sp-field-quickActions",
+        "href": "@currentField",
+        "target": "_blank"
+      },
+      "style": {
+        "position": "left",
+        "font-size": "24px"
+      }
+    },
+    {
+      "elmType": "span",
+      "style": {
+        "padding-left": "8px",
+        "height": "auto"
+      },
+      "txtContent": "=if(@currentField != '','Click to visit item website','')"
+    }
+  ]
+}
