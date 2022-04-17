@@ -1,0 +1,123 @@
+{
+    "elmType": "div",
+    "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "flex-direction": "row",
+        "justify-content": "space-evenly",
+        "width": "100%"
+    },
+    "attributes": {
+        "class": "ms-fontSize-18"
+    },
+    "children": [
+        {
+            "elmType": "div",
+            "style": {
+                "display": "flex",
+                "flex-direction": "column",
+                "align-items": "center",
+                "margin": "20px",
+                "white-space": "nowrap"
+            },
+            "children": [
+                {
+                    "elmType": "div",
+                    "txtContent": "Stage 1: Cost Centre Manager Approval",
+                    "style": {
+                        "margin-bottom": "10px"
+                    },
+                    "attributes": {
+                        "class": "ms-fontWeight-bold"
+                    }
+                },
+                {
+                    "elmType": "div",
+                    "style": {
+                        "margin-bottom": "10px"
+                    },
+                    "attributes": {
+                        "iconName": "=if(toString(getDate([$ApprovalDate])) == 'NaN','CircleShapeSolid' , 'CompletedSolid')",
+                        "class": "='ms-fontSize-42' + if(toString(getDate([$ApprovalDate])) == 'NaN' ,' ms-fontColor-neutralTertiary' , ' ms-fontColor-success')"
+                    }
+                },
+                {
+                    "elmType": "div",
+                    "txtContent": "=if(toString(getDate([$ApprovalDate])) == 'NaN', 'Not given yet',[$ApprovedBy.title] + ' | ' + [$ApprovalDate.displayValue])"
+                }
+            ]
+        },
+        {
+            "elmType": "div",
+            "style": {
+                "display": "flex",
+                "flex-direction": "column",
+                "align-items": "center",
+                "margin": "20px",
+                "white-space": "nowrap"
+            },
+            "children": [
+                {
+                    "elmType": "div",
+                    "txtContent": "Stage 2: Purchase",
+                    "style": {
+                        "margin-bottom": "10px"
+                    },
+                    "attributes": {
+                        "class": "ms-fontWeight-bold"
+                    }
+                },
+                {
+                    "elmType": "div",
+                    "style": {
+                        "margin-bottom": "10px"
+                    },
+                    "attributes": {
+                        "iconName": "=if(length([$Purchaser]) == 0,'CircleShapeSolid' , 'CompletedSolid')",
+                        "class": "='ms-fontSize-42' + if(length([$Purchaser]) == 0,' ms-fontColor-neutralTertiary' , ' ms-fontColor-success')"
+                    }
+                },
+                {
+                    "elmType": "div",
+                    "txtContent": "=if(length([$Purchaser]) == 0, 'Not yet purchased',[$Purchaser.title])"
+                }
+            ]
+        },
+        {
+            "elmType": "div",
+            "style": {
+                "display": "flex",
+                "flex-direction": "column",
+                "align-items": "center",
+                "margin": "20px",
+                "white-space": "nowrap"
+            },
+            "children": [
+                {
+                    "elmType": "div",
+                    "txtContent": "Stage 3: Receiving the item",
+                    "style": {
+                        "margin-bottom": "10px"
+                    },
+                    "attributes": {
+                        "class": "ms-fontWeight-bold"
+                    }
+                },
+                {
+                    "elmType": "div",
+                    "style": {
+                        "margin-bottom": "10px"
+                    },
+                    "attributes": {
+                        "iconName": "=if(length([$Receiver]) == 0  ,'CircleShapeSolid' , 'CompletedSolid')",
+                        "class": "='ms-fontSize-42' + if(length([$Receiver]) == 0 ,' ms-fontColor-neutralTertiary' , ' ms-fontColor-success')"
+                    }
+                },
+                {
+                    "elmType": "div",
+                    "txtContent": "=if(length([$Receiver]) == 0 , 'Not yet received',[$Receiver.title])"
+                }
+            ]
+        }
+    ]
+}
