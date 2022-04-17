@@ -1,0 +1,230 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.4",
+    "msteams": {
+        "width": "Full"
+    },
+    "body": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "altText": "People",
+                            "url": "https://normanhurb-h.schools.nsw.gov.au/content/dam/doe/sws/schools/n/normanhurb-h/icons/Dollar.png",
+                            "width": "75px",
+                            "selectAction": {
+                                "type": "Action.OpenUrl",
+                                "url": "https://schoolsnsw.sharepoint.com/sites/N1XHSGBP/",
+                                "id": "11"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "**New Purchase Request Lodged**: @{outputs('Update_item_-_Approved_for_Purchase')?['body/RequestID']}",
+                            "weight": "Bolder",
+                            "size": "Large",
+                            "wrap": true,
+                            "color": "Attention",
+                            "isSubtle": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "@{outputs('Update_item_-_Approved_for_Purchase')?['body/Title']}",
+                            "wrap": true,
+                            "spacing": "None",
+                            "color": "Accent",
+                            "weight": "Bolder",
+                            "size": "Large"
+                        }
+                    ],
+                    "verticalContentAlignment": "Center"
+                }
+            ],
+            "style": "warning",
+            "bleed": true
+        },
+        {
+            "type": "TextBlock",
+            "wrap": true,
+            "separator": true,
+            "size": "Small",
+            "text": "Dear @{outputs('Get_user_profile_(V2)_-_Nominated_Purchaser')?['body/givenName']},\n\nThis **Large Purchase Request** has been approved by the KLA HT/Cost Centre Manager @{outputs('Get_user_profile_(V2)_-_Nominated_Purchaser')?['body/givenName']} @{outputs('Get_user_profile_(V2)_-_Nominated_Purchaser')?['body/surname']}. ",
+            "fontType": "Default",
+            "color": "Accent"
+        },
+        {
+            "type": "Container",
+            "style": "emphasis",
+            "bleed": true,
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "🚦New Status",
+                                    "wrap": true,
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "@{outputs('Update_item_-_Approved_for_Purchase')?['body/Status/Value']}",
+                                    "wrap": true,
+                                    "spacing": "None"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "⏮️ Previous Status",
+                                    "wrap": true,
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "@{triggerOutputs()?['body/Status/Value']}",
+                                    "wrap": true,
+                                    "spacing": "None"
+                                }
+                            ]
+                        }
+                    ],
+                    "separator": true
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "bleed": true,
+            "style": "accent",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "✅ Approved by",
+                                    "wrap": true,
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "@{outputs('Get_user_profile_(V2)_-_Approver')?['body/givenName']} @{outputs('Get_user_profile_(V2)_-_Approver')?['body/surname']} ",
+                                    "wrap": true,
+                                    "spacing": "None"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "⌚ Approval time",
+                                    "wrap": true,
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "@{body('Convert_time_zone_-_Response_Time')}",
+                                    "wrap": true,
+                                    "spacing": "None"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "FactSet",
+            "facts": [
+                {
+                    "title": "Request ID",
+                    "value": "@{outputs('Update_item')?['body/RequestID']}"
+                },
+                {
+                    "title": "Supplier",
+                    "value": "@{outputs('Update_item_-_Approved_for_Purchase')?['body/Supplier/Value']}"
+                },
+                {
+                    "title": "Item Name",
+                    "value": "@{outputs('Update_item_-_Approved_for_Purchase')?['body/Title']}"
+                },
+                {
+                    "title": "Grand Total",
+                    "value": "@{body('Format_number_-_Grand_Total')}"
+                }
+            ],
+            "separator": true
+        },
+        {
+            "type": "Container",
+            "style": "good",
+            "bleed": true,
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "💳 **Please kindly proceed with making the purchase either**",
+                    "wrap": true,
+                    "color": "Accent"
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "- via PCard, or \n- raising a purchase order\n\nand click the **Mark as Purchased** button on the Purchase Request list when the purchase has been made.",
+                    "wrap": true,
+                    "spacing": "None"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "separator": true,
+            "actions": [
+                {
+                    "type": "Action.OpenUrl",
+                    "iconUrl": "https://normanhurb-h.schools.nsw.gov.au/content/dam/doe/sws/schools/n/normanhurb-h/icons/sharepoint.png",
+                    "url": "@{outputs('Update_item_-_Approved_for_Purchase')?['body/{Link}']}",
+                    "title": "View details of this Purchase Request"
+                },
+                {
+                    "type": "Action.OpenUrl",
+                    "title": "Chat with @{outputs('Get_user_profile_(V2)_-_Approver')?['body/givenName']} @{outputs('Get_user_profile_(V2)_-_Approver')?['body/surname']} (Approver)",
+                    "iconUrl": "https://normanhurb-h.schools.nsw.gov.au/content/dam/doe/sws/schools/n/normanhurb-h/icons/teams.png",
+                    "url": "https://teams.microsoft.com/l/chat/0/0?users=@{outputs('Get_user_profile_(V2)_-_Approver')?['body/mail']}"
+                },
+                {
+                    "type": "Action.OpenUrl",
+                    "title": "Chat with @{outputs('Get_user_profile_(V2)_-_person_who_created_the_request')?['body/givenName']} @{outputs('Get_user_profile_(V2)_-_person_who_created_the_request')?['body/surname']} (Requestor)",
+                    "iconUrl": "https://normanhurb-h.schools.nsw.gov.au/content/dam/doe/sws/schools/n/normanhurb-h/icons/teams.png",
+                    "url": "https://teams.microsoft.com/l/chat/0/0?users=@{outputs('Get_user_profile_(V2)_-_person_who_created_the_request')?['body/mail']}"
+                }
+            ]
+        }
+    ]
+}
